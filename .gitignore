@@ -16,6 +16,7 @@ cache/*
 # Исследовательские черновики сохранены локально, но не являются частью решения.
 archive/
 experiments/
+docs/
 final_v3_freeze.py
 FINAL_MODEL_CHECKPOINT.md
 
