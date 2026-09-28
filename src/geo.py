@@ -36,8 +36,8 @@ def build_transition_table(
     totals = counts.groupby("search_location_id")["count"].transform("sum")
     destination_count = counts.groupby("search_location_id")["item_location_id"].transform("count")
 
-    # +1 не подбирался как гиперпараметр. Это сглаживание не даёт редким
-    # наблюдавшимся направлениям получить слишком хрупкую нулевую оценку.
+    # +1 не подбирался как гиперпараметр. Сглаживание немного уменьшает влияние
+    # малых частот и делает распределение устойчивее для редких направлений.
     numerator = counts["count"] + LAPLACE_ALPHA
     denominator = totals + LAPLACE_ALPHA * destination_count
     counts["probability"] = numerator / denominator

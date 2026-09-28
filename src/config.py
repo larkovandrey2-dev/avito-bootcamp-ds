@@ -35,8 +35,8 @@ class PipelineConfig:
             "loss_function": "YetiRank",
             "depth": 6,
             "learning_rate": 0.05,
-            # Frozen v3/v4 value from local experiments. The research log does not
-            # say that 158 came from early stopping.
+            # Зафиксированное в локальных экспериментах значение v3/v4.
+            # Число 158 не является результатом early stopping.
             "iterations": 158,
             "random_seed": 42,
         }
