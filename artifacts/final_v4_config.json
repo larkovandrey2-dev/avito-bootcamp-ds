@@ -1,0 +1,38 @@
+{
+  "architecture": "E4: frozen v3 candidates + behavioral geo redirect + field interactions",
+  "embedding_model": "ai-sage/Giga-Embeddings-instruct-480M-0826",
+  "embedding_revision": "1763d603adac8057bd6482a708001b0ed2e0a903",
+  "candidate_sources": [
+    "Lexical",
+    "Giga",
+    "Giga_local",
+    "Description",
+    "Title_params",
+    "Giga_local_deep",
+    "Description_local",
+    "Giga_geo50",
+    "Geo_redirect"
+  ],
+  "feature_groups": {
+    "base_query_relative": 131,
+    "behavioral_geo": 11,
+    "field_interactions": 43,
+    "total": 185
+  },
+  "catboost": {
+    "loss_function": "YetiRank",
+    "depth": 6,
+    "learning_rate": 0.05,
+    "iterations": 158,
+    "random_seed": 42,
+    "training_negatives": "retrieval100"
+  },
+  "validation": {
+    "internal_hit_at_50": 0.8878,
+    "development_hit_at_50": 0.8940,
+    "development_candidate_coverage": 0.9642,
+    "benchmark_used_for_selection": false,
+    "holdout_used_for_v4_tuning": false
+  },
+  "official_recall_at_50": 0.844391
+}

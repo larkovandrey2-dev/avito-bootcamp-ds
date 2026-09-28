@@ -1,0 +1,31 @@
+.DS_Store
+.idea/
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Исходные данные выдаются отдельно и не должны попадать в публичный Git.
+data/*.parquet
+data/task
+
+# Кэш можно полностью пересоздать.
+cache/*
+!cache/README.md
+
+# Исследовательские черновики сохранены локально, но не являются частью решения.
+archive/
+experiments/
+final_v3_freeze.py
+FINAL_MODEL_CHECKPOINT.md
+
+# Файлы ответов генерируются локально.
+answer*.csv
+
+# В Git храним только небольшие final-v4 артефакты и их описание.
+artifacts/*
+!artifacts/README.md
+!artifacts/final_v4_config.json
+!artifacts/final_v4_feature_schema.json
+!artifacts/final_v4_e4_yetirank.cbm
+!artifacts/retrieval100_sampler.joblib
