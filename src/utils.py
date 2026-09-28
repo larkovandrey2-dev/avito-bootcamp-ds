@@ -9,13 +9,15 @@ import pandas as pd
 
 
 def normalize_text(values: pd.Series) -> pd.Series:
-    """Нормализация, общая для поиска и признаков."""
-    return values.astype("string").fillna("").map(
-        lambda value: re.sub(
-            r"\s+", " ",
-            re.sub(r"[^\w\s]+", " ", str(value).lower().replace("ё", "е")),
-        ).strip()
-    )
+    """Приводит тексты поиска и объявлений к одному простому виду."""
+
+    def normalize_one(value: str) -> str:
+        text = str(value).lower().replace("ё", "е")
+        text = re.sub(r"[^\w\s]+", " ", text)
+        text = re.sub(r"\s+", " ", text)
+        return text.strip()
+
+    return values.astype("string").fillna("").map(normalize_one)
 
 
 def safe_text(value) -> str:
@@ -27,6 +29,7 @@ def safe_text(value) -> str:
 def choose_device() -> str:
     try:
         import torch
+
         if torch.backends.mps.is_available():
             return "mps"
         if torch.cuda.is_available():

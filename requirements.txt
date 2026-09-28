@@ -12,3 +12,4 @@ matplotlib==3.11.2
 tqdm==4.70.1
 notebook==7.6.3
 nbformat==5.11.1
+pytest==8.4.2

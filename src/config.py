@@ -3,8 +3,14 @@ from pathlib import Path
 
 
 BASE_SOURCES = (
-    "Lexical", "Giga", "Giga_local", "Description", "Title_params",
-    "Giga_local_deep", "Description_local", "Giga_geo50",
+    "Lexical",
+    "Giga",
+    "Giga_local",
+    "Description",
+    "Title_params",
+    "Giga_local_deep",
+    "Description_local",
+    "Giga_geo50",
 )
 ALL_SOURCES = BASE_SOURCES + ("Geo_redirect",)
 
@@ -24,15 +30,23 @@ class PipelineConfig:
         "Instruct: Given a Russian service search query, retrieve relevant "
         "service advertisements\nQuery: "
     )
-    catboost_params: dict = field(default_factory=lambda: {
-        "loss_function": "YetiRank", "depth": 6, "learning_rate": 0.05,
-        "iterations": 158, "random_seed": 42,
-    })
+    catboost_params: dict = field(
+        default_factory=lambda: {
+            "loss_function": "YetiRank",
+            "depth": 6,
+            "learning_rate": 0.05,
+            # Frozen v3/v4 value from local experiments. The research log does not
+            # say that 158 came from early stopping.
+            "iterations": 158,
+            "random_seed": 42,
+        }
+    )
 
     @classmethod
     def from_root(cls, root: Path, data_dir: Path, output: Path):
         return cls(
-            root=root.resolve(), data_dir=data_dir.resolve(),
+            root=root.resolve(),
+            data_dir=data_dir.resolve(),
             cache_dir=(root / "cache").resolve(),
             artifacts_dir=(root / "artifacts").resolve(),
             output=output.resolve(),

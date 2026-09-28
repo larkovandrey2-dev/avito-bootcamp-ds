@@ -1,0 +1,12 @@
+{
+  "git_commit": "a200495c918fe9b9453fdd138525b15fe8f6bd45",
+  "git_tag": "v4-official-0.844391",
+  "feature_schema": "artifacts/final_v4_feature_schema.json",
+  "feature_count": 185,
+  "internal_hit_at_50": 0.8878,
+  "development_hit_at_50": 0.8940,
+  "development_candidate_coverage": 0.9642,
+  "official_recall_at_50": 0.844391,
+  "answer_v4_sha256": "5a48b1009541a59e90dd37de18d67460323fa9a1fa01a5980f6c80417fd124b4",
+  "evidence": "AVITO_RESEARCH_LOG_v26.md, section 36; local file hash"
+}
